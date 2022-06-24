@@ -1,5 +1,11 @@
+import Sidebar from "components/sidebar";
+
 const HomeModule = () => {
-  return <></>;
+  return (
+    <main>
+      <Sidebar />
+    </main>
+  );
 };
 
 export default HomeModule;
