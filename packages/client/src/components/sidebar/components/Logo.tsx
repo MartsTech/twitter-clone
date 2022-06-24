@@ -1,17 +1,19 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import type { FC } from "react";
 
 const SidebarLogo: FC = () => {
-  const router = useRouter();
-
   return (
-    <div
-      onClick={() => router.push("/")}
-      className="relative h-10 w-10 cursor-pointer"
-    >
-      <Image src="/images/logo.png" layout="fill" alt="logo" />
-    </div>
+    <Link href="/">
+      <div className="relative h-10 w-10 cursor-pointer">
+        <Image
+          data-testid="logo"
+          src="/images/logo.png"
+          layout="fill"
+          alt="logo"
+        />
+      </div>
+    </Link>
   );
 };
 

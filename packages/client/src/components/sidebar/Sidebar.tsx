@@ -14,20 +14,29 @@ import SidebarLogo from "./components/Logo";
 const Sidebar = () => {
   return (
     <section className="flex flex-col">
-      <Sidebar.Logo />
-      <Sidebar.Row title="Home" Icon={HomeIcon} />
-      <Sidebar.Row title="Explore" Icon={HashtagIcon} />
-      <Sidebar.Row title="Notifications" Icon={BellIcon} />
-      <Sidebar.Row title="Messages" Icon={MailIcon} />
-      <Sidebar.Row title="Bookmarks" Icon={BookmarkIcon} />
-      <Sidebar.Row title="Lists" Icon={CollectionIcon} />
-      <Sidebar.Row title="Sign In" Icon={UserIcon} />
-      <Sidebar.Row title="More" Icon={DotsCircleHorizontalIcon} />
+      <SidebarLogo />
+      <SidebarRow data-testid="home" title="Home" Icon={HomeIcon} />
+      <SidebarRow data-testid="explore" title="Explore" Icon={HashtagIcon} />
+      <SidebarRow
+        data-testid="notifications"
+        title="Notifications"
+        Icon={BellIcon}
+      />
+      <SidebarRow data-testid="messages" title="Messages" Icon={MailIcon} />
+      <SidebarRow
+        data-testid="bookmarks"
+        title="Bookmarks"
+        Icon={BookmarkIcon}
+      />
+      <SidebarRow data-testid="lists" title="Lists" Icon={CollectionIcon} />
+      <SidebarRow data-testid="signIn" title="Sign In" Icon={UserIcon} />
+      <SidebarRow
+        data-testid="more"
+        title="More"
+        Icon={DotsCircleHorizontalIcon}
+      />
     </section>
   );
 };
-
-Sidebar.Logo = SidebarLogo;
-Sidebar.Row = SidebarRow;
 
 export default Sidebar;
