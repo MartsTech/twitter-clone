@@ -9,8 +9,8 @@ const SidebarRow: FC<Props> = ({ title, Icon, ...props }) => {
   return (
     <div
       {...props}
-      className="group flex items-center max-w-fit space-x-2 
-      px-4 py-3 rounded-full hover:bg-gray-100 cursor-pointer 
+      className="px-4 py-3 group flex items-center min-w-[80%] 
+      space-x-2 rounded-full hover:bg-gray-100 cursor-pointer 
       transition-all duration-200 ease-in-out"
     >
       <Icon data-testid="icon" className="h-6 w-6" />

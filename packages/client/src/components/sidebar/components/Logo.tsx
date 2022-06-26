@@ -5,7 +5,7 @@ import type { FC } from "react";
 const SidebarLogo: FC = () => {
   return (
     <Link href="/">
-      <div className="relative h-10 w-10 cursor-pointer m-3">
+      <div className="m-4 relative h-10 w-10 cursor-pointer">
         <Image
           data-testid="logo"
           src="/images/logo.png"
