@@ -14,7 +14,11 @@ const SidebarRow: FC<Props> = ({ title, Icon, ...props }) => {
       transition-all duration-200 ease-in-out"
     >
       <Icon data-testid="icon" className="h-6 w-6" />
-      <p data-testid="title" className="group-hover:text-primary">
+      <p
+        data-testid="title"
+        className="group-hover:text-primary hidden md:inline-flex
+        text-base font-light lg:text-xl"
+      >
         {title}
       </p>
     </div>

@@ -12,7 +12,7 @@ const PageLayout: FC<Props> = ({ title = "Twitter Clone", children }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <>{children}</>
+      <div className="max-w-7xl mx-auto">{children}</div>
     </>
   );
 };

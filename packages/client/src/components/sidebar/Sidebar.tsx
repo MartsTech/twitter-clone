@@ -13,7 +13,7 @@ import SidebarLogo from "./components/Logo";
 
 const Sidebar = () => {
   return (
-    <section className="flex flex-col">
+    <div className="flex flex-col items-center px-4 md:items-start">
       <SidebarLogo />
       <SidebarRow data-testid="home" title="Home" Icon={HomeIcon} />
       <SidebarRow data-testid="explore" title="Explore" Icon={HashtagIcon} />
@@ -35,7 +35,7 @@ const Sidebar = () => {
         title="More"
         Icon={DotsCircleHorizontalIcon}
       />
-    </section>
+    </div>
   );
 };
 
