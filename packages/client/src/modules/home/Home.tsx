@@ -11,7 +11,7 @@ const HomeModule = () => {
       <section className="col-span-8 lg:col-span-5">
         <Feed />
       </section>
-      <section className="hidden lg:inline col-span-3">
+      <section className="col-span-3 hidden lg:inline">
         <Widget />
       </section>
     </main>

@@ -3,7 +3,7 @@ import WidgetSearch from "./components/Search";
 
 const Widget = () => {
   return (
-    <section className="px-2 mt-2">
+    <section className="mt-2 px-2">
       <WidgetSearch />
       <TwitterTimelineEmbed
         sourceType="profile"
