@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { FC } from "react";
 
-const SidebarLogo: FC = () => {
+const SidebarLogo = () => {
   return (
     <Link href="/">
       <div className="relative m-4 h-10 w-10 cursor-pointer">

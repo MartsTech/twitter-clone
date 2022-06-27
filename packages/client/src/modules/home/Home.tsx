@@ -1,6 +1,6 @@
-import Feed from "components/feed";
 import Sidebar from "components/sidebar";
 import Widget from "components/widget";
+import FeedModule from "modules/feed";
 
 const HomeModule = () => {
   return (
@@ -9,7 +9,7 @@ const HomeModule = () => {
         <Sidebar />
       </section>
       <section className="col-span-8 lg:col-span-5">
-        <Feed />
+        <FeedModule />
       </section>
       <section className="col-span-3 hidden lg:inline">
         <Widget />

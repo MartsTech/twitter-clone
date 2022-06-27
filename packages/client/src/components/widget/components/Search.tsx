@@ -1,7 +1,6 @@
 import { SearchIcon } from "@heroicons/react/outline";
-import type { FC } from "react";
 
-const WidgetSearch: FC = () => {
+const WidgetSearch = () => {
   return (
     <div
       data-testId="search"
