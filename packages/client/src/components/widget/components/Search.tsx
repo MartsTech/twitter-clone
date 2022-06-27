@@ -3,13 +3,13 @@ import { SearchIcon } from "@heroicons/react/outline";
 const WidgetSearch = () => {
   return (
     <div
-      data-testId="search"
+      data-testid="search"
       className="mt-2 flex items-center space-x-2 rounded-full
       bg-gray-100 p-3"
     >
-      <SearchIcon data-testId="icon" className="h-5 w-5 text-gray-400" />
+      <SearchIcon data-testid="icon" className="h-5 w-5 text-gray-400" />
       <input
-        data-testId="input"
+        data-testid="input"
         type="text"
         placeholder="Search Twitter"
         className="flex-1 bg-transparent outline-none"

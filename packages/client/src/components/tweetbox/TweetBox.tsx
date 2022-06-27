@@ -18,6 +18,7 @@ const TweetBox = () => {
       <div className="flex flex-1 items-center pl-2">
         <form className="flex flex-1 flex-col">
           <input
+            data-testid="input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             type="text"
@@ -33,6 +34,7 @@ const TweetBox = () => {
               <LocationMarkerIcon className="h-5 w-5" />
             </div>
             <button
+              data-testid="button"
               disabled={!input.length}
               className="rounded-full bg-primary px-5 py-2 font-bold
               text-white disabled:opacity-40"
