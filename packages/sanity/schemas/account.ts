@@ -25,7 +25,7 @@ export default {
     },
     {
       name: "accessTokenExpires",
-      type: "string",
+      type: "number",
     },
     {
       name: "user",

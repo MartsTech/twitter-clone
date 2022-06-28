@@ -25,10 +25,4 @@ export default {
       to: { type: "user" },
     },
   ],
-  preview: {
-    select: {
-      title: "body",
-      media: "image",
-    },
-  },
 };

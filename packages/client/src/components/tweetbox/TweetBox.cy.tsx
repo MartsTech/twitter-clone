@@ -1,3 +1,6 @@
+import { HomeIcon } from "@heroicons/react/outline";
+import TweetBoxAvatar from "./components/Avatar";
+import TweetBoxIcon from "./components/Icon";
 import TweetBox from "./TweetBox";
 
 describe("<TweetBox>", () => {
@@ -26,5 +29,25 @@ describe("<TweetBox>", () => {
 
     cy.get("[data-testid='input']").clear();
     cy.get("[data-testid='button']").should("be.disabled");
+  });
+});
+
+describe("<TweetBoxIcon>", () => {
+  beforeEach(() => {
+    cy.mount(<TweetBoxIcon Icon={HomeIcon} />);
+  });
+
+  it("should render Icon props correctly", () => {
+    cy.get("[data-testid='icon']").should("be.visible");
+  });
+});
+
+describe("<TweetBoxAvatar>", () => {
+  beforeEach(() => {
+    cy.mount(<TweetBoxAvatar />);
+  });
+
+  it("should have Avatar be visible", () => {
+    cy.get("[data-testid='avatar']").should("be.visible");
   });
 });

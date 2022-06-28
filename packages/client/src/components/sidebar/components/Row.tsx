@@ -3,6 +3,7 @@ import type { FC, SVGProps } from "react";
 interface Props {
   title: string;
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  onClick?: () => void;
 }
 
 const SidebarRow: FC<Props> = ({ title, Icon, ...props }) => {

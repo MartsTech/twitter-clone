@@ -2,7 +2,7 @@
   "root": true,
   "api": {
     "projectId": "",
-    "dataset": "production"
+    "dataset": ""
   },
   "project": {
     "name": "twitter-clone"
