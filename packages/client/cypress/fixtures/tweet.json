@@ -1,0 +1,26 @@
+{
+  "_createdAt": "2022-06-28T15:09:52Z",
+  "_id": "c773a2c7-f2a6-4503-8e47-c281f3c51a6e",
+  "_rev": "HePqRSIKIpzDxf9di3ROmJ",
+  "_type": "tweet",
+  "_updatedAt": "2022-06-28T19:01:32Z",
+  "body": "Check out my GitHub Skyline!",
+  "image": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-2d446a79b581e9b8b95b7b75054b49bed86c11d8-600x314-jpg",
+      "_type": "reference"
+    }
+  },
+  "isBlocked": false,
+  "user": {
+    "_createdAt": "2022-06-28T11:47:38Z",
+    "_id": "user.717ebaa5-6eb9-40ff-b916-452543bd8723",
+    "_rev": "yhyI8h1QSgFaZW7ArFZEhj",
+    "_type": "user",
+    "_updatedAt": "2022-06-28T11:47:38Z",
+    "email": null,
+    "image": "https://pbs.twimg.com/profile_images/1268295011659063298/tcwFuWkM_normal.jpg",
+    "name": "Martin Velkov"
+  }
+}

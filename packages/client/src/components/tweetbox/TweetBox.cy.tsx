@@ -1,11 +1,19 @@
 import { HomeIcon } from "@heroicons/react/outline";
-import TweetBoxAvatar from "./components/Avatar";
+import { SessionProvider } from "next-auth/react";
 import TweetBoxIcon from "./components/Icon";
 import TweetBox from "./TweetBox";
 
 describe("<TweetBox>", () => {
   beforeEach(() => {
-    cy.mount(<TweetBox />);
+    cy.mount(
+      <SessionProvider>
+        <TweetBox />
+      </SessionProvider>
+    );
+  });
+
+  it("should render avatar", () => {
+    cy.get("[data-testid=avatar]").should("exist");
   });
 
   it("should contain the corrent placeholder text", () => {
@@ -39,15 +47,5 @@ describe("<TweetBoxIcon>", () => {
 
   it("should render Icon props correctly", () => {
     cy.get("[data-testid='icon']").should("be.visible");
-  });
-});
-
-describe("<TweetBoxAvatar>", () => {
-  beforeEach(() => {
-    cy.mount(<TweetBoxAvatar />);
-  });
-
-  it("should have Avatar be visible", () => {
-    cy.get("[data-testid='avatar']").should("be.visible");
   });
 });
