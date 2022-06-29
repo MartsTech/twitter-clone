@@ -1,4 +1,4 @@
-import { User } from "./user";
+import type { User } from "./user";
 
 export interface Tweet extends TweetBody {
   _type: "tweet";

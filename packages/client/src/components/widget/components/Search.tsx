@@ -1,13 +1,14 @@
 import { SearchIcon } from "@heroicons/react/outline";
+import type { FC } from "react";
 
-const WidgetSearch = () => {
+const WidgetSearch: FC = ({ ...props }) => {
   return (
     <div
-      data-testid="search"
-      className="mt-2 flex items-center space-x-2 rounded-full
-      bg-gray-100 p-3"
+      {...props}
+      className="mt-2 flex items-center space-x-2 
+      rounded-full bg-gray-100 p-3"
     >
-      <SearchIcon data-testid="icon" className="h-5 w-5 text-gray-400" />
+      <SearchIcon className="h-5 w-5 text-gray-400" />
       <input
         data-testid="input"
         type="text"

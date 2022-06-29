@@ -7,7 +7,7 @@ describe("<Widget>", () => {
   });
 
   it("should render search input", () => {
-    cy.get("[data-testid='search']").should("exist");
+    cy.get("[data-testid='search']").should("be.visible");
   });
 });
 
@@ -16,16 +16,12 @@ describe("<WidgetSearch>", () => {
     cy.mount(<WidgetSearch />);
   });
 
-  it("should contain the corrent placeholder text", () => {
+  it("should contain the correct placeholder text", () => {
     cy.get("[data-testid='input']").should(
       "have.attr",
       "placeholder",
       "Search Twitter"
     );
-  });
-
-  it("should contain the corrent icon", () => {
-    cy.get("[data-testid='icon']").should("be.visible");
   });
 
   it("should allow the user to type", async () => {

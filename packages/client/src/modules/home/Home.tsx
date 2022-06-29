@@ -1,26 +1,33 @@
-import Sidebar from "components/sidebar";
-import Widget from "components/widget";
-import FeedModule from "modules/feed";
+import { RefreshIcon } from "@heroicons/react/outline";
+import Tweet from "components/tweet";
+import TweetBox from "components/tweetbox";
 import type { FC } from "react";
-import type { Tweet } from "types/tweet";
+import type { Tweet as TweetType } from "types/tweet";
 
 interface Props {
-  tweets: Tweet[];
+  tweets: TweetType[];
 }
 
 const HomeModule: FC<Props> = ({ tweets }) => {
   return (
-    <main className="grid grid-cols-10">
-      <section className="col-span-2">
-        <Sidebar />
-      </section>
-      <section className="col-span-8 lg:col-span-5">
-        <FeedModule tweets={tweets} />
-      </section>
-      <section className="col-span-3 hidden lg:inline">
-        <Widget />
-      </section>
-    </main>
+    <div className="border-x">
+      <div className="flex items-center justify-between">
+        <h1 className="p-5 pb-0 text-xl font-bold">Home</h1>
+        <RefreshIcon
+          className="mr-5 mt-5 h-8 w-8 cursor-pointer text-primary
+          transition-all duration-500 ease-out hover:rotate-180
+          active:scale-125"
+        />
+      </div>
+      <div className="">
+        <TweetBox />
+      </div>
+      <div className="">
+        {tweets.map((tweet) => (
+          <Tweet key={tweet["_id"]} tweet={tweet} />
+        ))}
+      </div>
+    </div>
   );
 };
 

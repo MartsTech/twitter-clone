@@ -4,7 +4,7 @@ import WidgetSearch from "./components/Search";
 const Widget = () => {
   return (
     <section className="mt-2 px-2">
-      <WidgetSearch />
+      <WidgetSearch data-testId="search" />
       <TwitterTimelineEmbed
         sourceType="profile"
         screenName="martstech"

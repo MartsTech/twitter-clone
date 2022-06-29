@@ -1,5 +1,5 @@
-import Widgets from "./Widget";
 import WidgetSearch from "./components/Search";
+import Widget from "./Widget";
 
 export { WidgetSearch };
-export default Widgets;
+export default Widget;

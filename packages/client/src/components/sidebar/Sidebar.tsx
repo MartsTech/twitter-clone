@@ -17,7 +17,7 @@ const Sidebar = () => {
 
   return (
     <div className="flex flex-col items-center px-4 md:items-start">
-      <SidebarLogo />
+      <SidebarLogo data-testid="logo" />
       <SidebarRow data-testid="home" title="Home" Icon={HomeIcon} />
       <SidebarRow data-testid="explore" title="Explore" Icon={HashtagIcon} />
       <SidebarRow

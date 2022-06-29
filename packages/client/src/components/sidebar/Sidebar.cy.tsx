@@ -1,15 +1,20 @@
 import { HomeIcon } from "@heroicons/react/outline";
+import { SessionProvider } from "next-auth/react";
 import SidebarLogo from "./components/Logo";
 import SidebarRow from "./components/Row";
 import Sidebar from "./Sidebar";
 
 describe("<Sidebar>", () => {
   beforeEach(() => {
-    cy.mount(<Sidebar />);
+    cy.mount(
+      <SessionProvider>
+        <Sidebar />
+      </SessionProvider>
+    );
   });
 
   it("should render logo", () => {
-    cy.get("[data-testid='logo']").should("exist");
+    cy.get("[data-testid='logo']").should("be.visible");
   });
 
   it("should render all rows", () => {
@@ -30,7 +35,7 @@ describe("<Logo>", () => {
   });
 
   it("should have visible image", () => {
-    cy.get("[data-testid='logo']").should("be.visible");
+    cy.get("[data-testid='image']").should("be.visible");
   });
 });
 
