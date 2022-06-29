@@ -1,5 +1,7 @@
+import { ChatAlt2Icon } from "@heroicons/react/outline";
 import type { Image, Tweet as TweetType } from "types/tweet";
 import TweetHeader from "./components/Header";
+import TweetIcon from "./components/Icon";
 import TweetImage from "./components/Image";
 import Tweet from "./Tweet";
 
@@ -22,6 +24,14 @@ describe("<Tweet>", () => {
     cy.fixture("tweet.json").then((tweet: TweetType) => {
       cy.get("[data-testid=body]").should("contain", tweet.body);
     });
+  });
+
+  it("should render image", () => {
+    cy.get("[data-testid=image]").should("exist");
+  });
+
+  it("should render comment icon", () => {
+    cy.get("[data-testid=commentIcon]").should("exist");
   });
 });
 
@@ -49,8 +59,19 @@ describe("<TweetImage>", () => {
   });
 
   it("should display image", () => {
-    cy.fixture("tweet.json").then((tweet: TweetType) => {
-      cy.get("[data-testid=image]").should("be.visible");
-    });
+    cy.get("[data-testid=image]").should("be.visible");
+  });
+});
+
+describe("<TweetIcon>", () => {
+  it("should display count and Icon props", () => {
+    cy.mount(<TweetIcon Icon={ChatAlt2Icon} count={5} />);
+    cy.get("[data-testid='count']").contains("5");
+    cy.get("[data-testid='icon']").should("be.visible");
+  });
+
+  it("should not display count when not given", () => {
+    cy.mount(<TweetIcon Icon={ChatAlt2Icon} />);
+    cy.get("[data-testid='count']").should("not.exist");
   });
 });

@@ -16,6 +16,10 @@ describe("<TweetBox>", () => {
     cy.get("[data-testid=avatar]").should("exist");
   });
 
+  it("should render image icon", () => {
+    cy.get("[data-testid=imageIcon]").should("exist");
+  });
+
   it("should contain the corrent placeholder text", () => {
     cy.get("[data-testid='input']").should(
       "have.attr",
@@ -45,7 +49,7 @@ describe("<TweetBoxIcon>", () => {
     cy.mount(<TweetBoxIcon Icon={HomeIcon} />);
   });
 
-  it("should render Icon props correctly", () => {
+  it("should display Icon props", () => {
     cy.get("[data-testid='icon']").should("be.visible");
   });
 });

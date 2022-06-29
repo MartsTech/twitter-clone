@@ -5,14 +5,15 @@ interface Props {
   count?: number;
 }
 
-const TweetIcon: FC<Props> = ({ Icon, count }) => {
+const TweetIcon: FC<Props> = ({ Icon, count, ...props }) => {
   return (
     <div
-      className="flex cursor-pointer items-center space-x-3 
-      text-gray-400"
+      {...props}
+      className="flex cursor-pointer items-center 
+      space-x-3 text-gray-400"
     >
-      <Icon className="h-5 w-5" />
-      {typeof count !== "undefined" && <p>{count}</p>}
+      <Icon data-testid="icon" className="h-5 w-5" />
+      {typeof count !== "undefined" && <p data-testid="count">{count}</p>}
     </div>
   );
 };

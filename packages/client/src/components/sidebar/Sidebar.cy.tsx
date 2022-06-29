@@ -14,7 +14,7 @@ describe("<Sidebar>", () => {
   });
 
   it("should render logo", () => {
-    cy.get("[data-testid='logo']").should("be.visible");
+    cy.get("[data-testid='logo']").should("exist");
   });
 
   it("should render all rows", () => {
@@ -34,7 +34,7 @@ describe("<Logo>", () => {
     cy.mount(<SidebarLogo />);
   });
 
-  it("should have visible image", () => {
+  it("should display image", () => {
     cy.get("[data-testid='image']").should("be.visible");
   });
 });
@@ -44,7 +44,7 @@ describe("<Row>", () => {
     cy.mount(<SidebarRow title="Home" Icon={HomeIcon} />);
   });
 
-  it("should render title and Icon props correctly", () => {
+  it("should display title and Icon props", () => {
     cy.get("[data-testid='title']").contains("Home");
     cy.get("[data-testid='icon']").should("be.visible");
   });

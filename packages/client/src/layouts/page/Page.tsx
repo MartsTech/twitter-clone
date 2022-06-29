@@ -18,9 +18,7 @@ const PageLayout: FC<Props> = ({ title = "Twitter Clone", children }) => {
         <section className="col-span-2">
           <Sidebar />
         </section>
-        <section className="col-span-8 lg:col-span-5">
-          <>{children}</>
-        </section>
+        <section className="col-span-8 lg:col-span-5">{children}</section>
         <section className="col-span-3 hidden lg:inline">
           <Widget />
         </section>

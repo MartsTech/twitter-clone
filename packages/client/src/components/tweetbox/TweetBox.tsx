@@ -35,7 +35,7 @@ const TweetBox = () => {
           />
           <div className="flex items-center">
             <div className="flex flex-1 space-x-2 text-primary">
-              <TweetBoxIcon Icon={PhotographIcon} />
+              <TweetBoxIcon data-testid="imageIcon" Icon={PhotographIcon} />
               <SearchCircleIcon className="h-5 w-5" />
               <EmojiHappyIcon className="h-5 w-5" />
               <CalendarIcon className="h-5 w-5" />

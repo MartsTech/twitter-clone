@@ -5,7 +5,7 @@ describe("<Avatar>", () => {
     cy.mount(<Avatar />);
   });
 
-  it("should render image", () => {
+  it("should display image", () => {
     cy.get("[data-testid='image']").should("be.visible");
   });
 });

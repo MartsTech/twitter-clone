@@ -1,6 +1,6 @@
-import "./commands";
 import { mount } from "cypress/react";
 import "tailwindcss/tailwind.css";
+import "./commands";
 
 declare global {
   namespace Cypress {

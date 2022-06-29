@@ -4,13 +4,15 @@ interface Props {
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 }
 
-const TweetBoxIcon: FC<Props> = ({ Icon }) => {
+const TweetBoxIcon: FC<Props> = ({ Icon, ...props }) => {
   return (
-    <Icon
-      data-testid="icon"
-      className="h-5 w-5 cursor-pointer transition-transform 
+    <div {...props}>
+      <Icon
+        data-testid="icon"
+        className="h-5 w-5 cursor-pointer transition-transform 
       duration-150 ease-out hover:scale-150"
-    />
+      />
+    </div>
   );
 };
 

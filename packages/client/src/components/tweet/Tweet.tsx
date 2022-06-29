@@ -29,11 +29,13 @@ const Tweet: FC<Props> = ({ tweet }) => {
           <p data-testid="body" className="pt-1">
             {tweet.body}
           </p>
-          {tweet.image && <TweetImage image={tweet.image} />}
+          {tweet.image && (
+            <TweetImage data-testid="image" image={tweet.image} />
+          )}
         </div>
       </div>
       <div className="mt-5 flex justify-between">
-        <TweetIcon Icon={ChatAlt2Icon} count={5} />
+        <TweetIcon data-testid="commentIcon" Icon={ChatAlt2Icon} count={5} />
         <TweetIcon Icon={SwitchHorizontalIcon} />
         <TweetIcon Icon={HeartIcon} />
         <TweetIcon Icon={UploadIcon} />
