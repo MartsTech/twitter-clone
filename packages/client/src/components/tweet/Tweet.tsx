@@ -5,10 +5,10 @@ import {
   UploadIcon,
 } from "@heroicons/react/outline";
 import Avatar from "components/avatar";
-import Comment from "components/comment";
 import useTweetComments from "hooks/useTweetComments";
 import type { FC } from "react";
 import type { Tweet as TweetType } from "types/tweet";
+import TweetComments from "./components/Comments";
 import TweetHeader from "./components/Header";
 import TweetIcon from "./components/Icon";
 import TweetImage from "./components/Image";
@@ -48,17 +48,7 @@ const Tweet: FC<Props> = ({ tweet }) => {
         <TweetIcon Icon={HeartIcon} />
         <TweetIcon Icon={UploadIcon} />
       </div>
-      {comments.length > 0 && (
-        <div
-          className="my-2 mt-5 max-h-44 space-y-5 overflow-y-scroll
-          border-t border-gray-100 p-5 scrollbar-thin
-          scrollbar-track-gray-100 scrollbar-thumb-gray-300"
-        >
-          {comments.map((comment) => (
-            <Comment key={comment["_id"]} comment={comment} />
-          ))}
-        </div>
-      )}
+      {comments.length > 0 && <TweetComments comments={comments} />}
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { ChatAlt2Icon } from "@heroicons/react/outline";
+import type { Comment } from "types/comment";
 import type { Image, Tweet as TweetType } from "types/tweet";
+import TweetComments from "./components/Comments";
 import TweetHeader from "./components/Header";
 import TweetIcon from "./components/Icon";
 import TweetImage from "./components/Image";
@@ -73,5 +75,17 @@ describe("<TweetIcon>", () => {
   it("should not display count when not given", () => {
     cy.mount(<TweetIcon Icon={ChatAlt2Icon} />);
     cy.get("[data-testid='count']").should("not.exist");
+  });
+});
+
+describe("<TweetComments>", () => {
+  beforeEach(() => {
+    cy.fixture("comments.json").then((comments: Comment[]) => {
+      cy.mount(<TweetComments comments={comments} />);
+    });
+  });
+
+  it("should display all comments", () => {
+    cy.get("[data-testid='comment']").should("have.length", 5);
   });
 });
