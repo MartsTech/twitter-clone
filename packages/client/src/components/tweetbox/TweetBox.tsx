@@ -20,7 +20,7 @@ const TweetBox = () => {
         <Avatar
           data-testid="avatar"
           src={session.data?.user?.image || undefined}
-          large
+          size="large"
         />
       </div>
       <div className="flex flex-1 items-center pl-2">
