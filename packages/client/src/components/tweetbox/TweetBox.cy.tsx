@@ -35,12 +35,6 @@ describe("<TweetBox>", () => {
 
   it("should have the button disabled when no text", () => {
     cy.get("[data-testid='button']").should("be.disabled");
-
-    cy.get("[data-testid='input']").type("Example");
-    cy.get("[data-testid='button']").should("not.be.disabled");
-
-    cy.get("[data-testid='input']").clear();
-    cy.get("[data-testid='button']").should("be.disabled");
   });
 });
 
