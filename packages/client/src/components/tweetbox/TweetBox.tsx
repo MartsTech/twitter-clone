@@ -9,7 +9,9 @@ import Avatar from "components/avatar";
 import { TweetImage } from "components/tweet";
 import useSelectedImage from "hooks/useSelectedImage";
 import { useSession } from "next-auth/react";
+import type { FormEvent } from "react";
 import { useState } from "react";
+import createTweet from "utils/tweet/createTweet";
 import TweetBoxIcon from "./components/Icon";
 
 const TweetBox = () => {
@@ -17,6 +19,12 @@ const TweetBox = () => {
   const [imageRef, selectedImage, setSelectedImage, handleSelectImage] =
     useSelectedImage();
   const session = useSession();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>, body: string) => {
+    e.preventDefault();
+    await createTweet({ body });
+    setInput("");
+  };
 
   return (
     <div className="flex space-x-2 p-5">
@@ -28,7 +36,10 @@ const TweetBox = () => {
         />
       </div>
       <div className="flex flex-1 items-center pl-2">
-        <form className="flex flex-1 flex-col">
+        <form
+          onSubmit={(e) => handleSubmit(e, input)}
+          className="flex flex-1 flex-col"
+        >
           <input
             data-testid="input"
             value={input}

@@ -1,18 +1,19 @@
 import type { User } from "./user";
 
-export interface Tweet extends TweetBody {
+export interface Tweet {
   _type: "tweet";
   _id: string;
   _rev: string;
   _createdAt: string;
   _updatedAt: string;
   isBlocked: boolean;
+  body: string;
+  user: User;
+  image: Image | null;
 }
 
 export interface TweetBody {
   body: string;
-  image: Image | null;
-  user: User;
 }
 
 export interface Image {

@@ -16,6 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   }
 
   const client = getClient(true);
+
   const comments: Comment[] = await client.fetch(commentsByIdQuery, {
     tweetId,
   });

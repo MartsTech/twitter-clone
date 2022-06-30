@@ -1,6 +1,6 @@
-import { Comment } from "types/comment";
+import type { Comment } from "types/comment";
 
-const fetchComments = async (tweetId: string) => {
+const fetchCommentsByTweetId = async (tweetId: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/sanity/getCommentsByTweetId?tweetId=${tweetId}`
   );
@@ -9,4 +9,4 @@ const fetchComments = async (tweetId: string) => {
   return comments;
 };
 
-export default fetchComments;
+export default fetchCommentsByTweetId;
