@@ -6,12 +6,16 @@ import {
   SearchCircleIcon,
 } from "@heroicons/react/outline";
 import Avatar from "components/avatar";
+import { TweetImage } from "components/tweet";
+import useSelectedImage from "hooks/useSelectedImage";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import TweetBoxIcon from "./components/Icon";
 
 const TweetBox = () => {
   const [input, setInput] = useState("");
+  const [imageRef, selectedImage, setSelectedImage, handleSelectImage] =
+    useSelectedImage();
   const session = useSession();
 
   return (
@@ -35,7 +39,11 @@ const TweetBox = () => {
           />
           <div className="flex items-center">
             <div className="flex flex-1 space-x-2 text-primary">
-              <TweetBoxIcon data-testid="imageIcon" Icon={PhotographIcon} />
+              <TweetBoxIcon
+                data-testid="imageIcon"
+                Icon={PhotographIcon}
+                onClick={() => imageRef.current?.click()}
+              />
               <SearchCircleIcon className="h-5 w-5" />
               <EmojiHappyIcon className="h-5 w-5" />
               <CalendarIcon className="h-5 w-5" />
@@ -43,13 +51,27 @@ const TweetBox = () => {
             </div>
             <button
               data-testid="button"
-              disabled={!input.length}
+              disabled={!input.length || session.status !== "authenticated"}
               className="rounded-full bg-primary px-5 py-2 
               font-bold text-white disabled:opacity-40"
             >
               Tweet
             </button>
           </div>
+          <input
+            ref={imageRef}
+            type="file"
+            hidden
+            onChange={handleSelectImage}
+          />
+          {selectedImage && (
+            <div className="-ml-5">
+              <TweetImage
+                src={selectedImage}
+                onClick={() => setSelectedImage(null)}
+              />
+            </div>
+          )}
         </form>
       </div>
     </div>

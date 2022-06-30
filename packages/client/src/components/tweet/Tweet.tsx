@@ -8,6 +8,7 @@ import Avatar from "components/avatar";
 import useTweetComments from "hooks/useTweetComments";
 import type { FC } from "react";
 import type { Tweet as TweetType } from "types/tweet";
+import { urlFor } from "utils/sanity";
 import TweetComments from "./components/Comments";
 import TweetHeader from "./components/Header";
 import TweetIcon from "./components/Icon";
@@ -34,7 +35,7 @@ const Tweet: FC<Props> = ({ tweet }) => {
             {tweet.body}
           </p>
           {tweet.image && (
-            <TweetImage data-testid="image" image={tweet.image} />
+            <TweetImage data-testid="image" src={urlFor(tweet.image).url()} />
           )}
         </div>
       </div>

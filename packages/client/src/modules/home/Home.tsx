@@ -2,7 +2,7 @@ import { RefreshIcon } from "@heroicons/react/outline";
 import Tweet from "components/tweet";
 import TweetBox from "components/tweetbox";
 import useTweets from "hooks/useTweets";
-import { FC } from "react";
+import type { FC } from "react";
 import type { Tweet as TweetType } from "types/tweet";
 
 interface Props {

@@ -1,6 +1,7 @@
 import { ChatAlt2Icon } from "@heroicons/react/outline";
 import type { Comment } from "types/comment";
 import type { Image, Tweet as TweetType } from "types/tweet";
+import { urlFor } from "utils/sanity";
 import TweetComments from "./components/Comments";
 import TweetHeader from "./components/Header";
 import TweetIcon from "./components/Icon";
@@ -56,7 +57,7 @@ describe("<TweetHeader>", () => {
 describe("<TweetImage>", () => {
   beforeEach(() => {
     cy.fixture("tweet.json").then((tweet: TweetType) => {
-      cy.mount(<TweetImage image={tweet.image as Image} />);
+      cy.mount(<TweetImage src={urlFor(tweet.image as Image).url()} />);
     });
   });
 
