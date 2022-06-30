@@ -9,21 +9,38 @@ import Avatar from "components/avatar";
 import { TweetImage } from "components/tweet";
 import useSelectedImage from "hooks/useSelectedImage";
 import { useSession } from "next-auth/react";
-import type { FormEvent } from "react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import createTweet from "utils/tweet/createTweet";
+import uploadTweetImage from "utils/tweet/uploadTweetImage";
 import TweetBoxIcon from "./components/Icon";
 
 const TweetBox = () => {
   const [input, setInput] = useState("");
-  const [imageRef, selectedImage, setSelectedImage, handleSelectImage] =
+  const [submiting, setSubmiting] = useState(false);
+  const [imageRef, imageFile, imageDataUrl, handleSelectImage] =
     useSelectedImage();
   const session = useSession();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>, body: string) => {
+  const handleSubmit = async (
+    e: FormEvent<HTMLFormElement>,
+    body: string,
+    imageFile: File | null
+  ) => {
     e.preventDefault();
-    await createTweet({ body });
+    if (submiting) {
+      return;
+    }
+    setSubmiting(true);
+
+    const rev = await createTweet({ body });
+
     setInput("");
+    handleSelectImage();
+
+    if (imageFile && rev) {
+      await uploadTweetImage(rev, imageFile);
+    }
+    setSubmiting(false);
   };
 
   return (
@@ -37,7 +54,7 @@ const TweetBox = () => {
       </div>
       <div className="flex flex-1 items-center pl-2">
         <form
-          onSubmit={(e) => handleSubmit(e, input)}
+          onSubmit={(e) => handleSubmit(e, input, imageFile)}
           className="flex flex-1 flex-col"
         >
           <input
@@ -75,11 +92,11 @@ const TweetBox = () => {
             hidden
             onChange={handleSelectImage}
           />
-          {selectedImage && (
+          {imageDataUrl && (
             <div className="-ml-5">
               <TweetImage
-                src={selectedImage}
-                onClick={() => setSelectedImage(null)}
+                src={imageDataUrl}
+                onClick={() => handleSelectImage()}
               />
             </div>
           )}

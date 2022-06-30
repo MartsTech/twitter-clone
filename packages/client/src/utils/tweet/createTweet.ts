@@ -6,8 +6,8 @@ const createTweet = async (props: TweetBody) => {
     { body: JSON.stringify(props), method: "POST" }
   );
   const data = await res.json();
-  const id: string | null = data.id;
-  return id;
+  const rev: string | null = data.rev;
+  return rev;
 };
 
 export default createTweet;
