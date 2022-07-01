@@ -9,6 +9,7 @@ interface Props {
 const Avatar: FC<Props> = ({ src, size = "normal", ...props }) => {
   return (
     <div
+      data-testid="avatar"
       {...props}
       className={`relative ${
         size === "small"

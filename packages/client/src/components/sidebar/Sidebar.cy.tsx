@@ -1,4 +1,5 @@
 import { HomeIcon } from "@heroicons/react/outline";
+import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import SidebarLogo from "./components/Logo";
 import SidebarRow from "./components/Row";
@@ -6,11 +7,13 @@ import Sidebar from "./Sidebar";
 
 describe("<Sidebar>", () => {
   beforeEach(() => {
-    cy.mount(
-      <SessionProvider>
-        <Sidebar />
-      </SessionProvider>
-    );
+    cy.fixture("unauthSession.json").then((session: Session) => {
+      cy.mount(
+        <SessionProvider session={session}>
+          <Sidebar />
+        </SessionProvider>
+      );
+    });
   });
 
   it("should render logo", () => {

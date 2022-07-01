@@ -1,33 +1,23 @@
-import { HomeIcon } from "@heroicons/react/outline";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import TweetBoxIcon from "./components/Icon";
-import TweetBox from "./TweetBox";
+import CommentBox from "./CommentBox";
 
-describe("<TweetBox>", () => {
+describe("<CommentBox>", () => {
   beforeEach(() => {
     cy.fixture("unauthSession.json").then((session: Session) => {
       cy.mount(
         <SessionProvider session={session}>
-          <TweetBox onTweet={() => Promise.resolve()} />
+          <CommentBox onComment={() => null} tweetId="1" />
         </SessionProvider>
       );
     });
-  });
-
-  it("should render avatar", () => {
-    cy.get("[data-testid=avatar]").should("exist");
-  });
-
-  it("should render image icon", () => {
-    cy.get("[data-testid=imageIcon]").should("exist");
   });
 
   it("should contain the corrent placeholder text", () => {
     cy.get("[data-testid='input']").should(
       "have.attr",
       "placeholder",
-      "What's happening?"
+      "Write a comment..."
     );
   });
 
@@ -38,15 +28,5 @@ describe("<TweetBox>", () => {
 
   it("should have the button disabled when no text", () => {
     cy.get("[data-testid='button']").should("be.disabled");
-  });
-});
-
-describe("<TweetBoxIcon>", () => {
-  beforeEach(() => {
-    cy.mount(<TweetBoxIcon Icon={HomeIcon} />);
-  });
-
-  it("should display Icon props", () => {
-    cy.get("[data-testid='icon']").should("be.visible");
   });
 });

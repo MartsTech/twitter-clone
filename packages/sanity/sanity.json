@@ -5,7 +5,7 @@
     "dataset": ""
   },
   "project": {
-    "name": "twitter-clone"
+    "name": ""
   },
   "plugins": [
     "@sanity/base",

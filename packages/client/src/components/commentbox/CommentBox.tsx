@@ -39,6 +39,7 @@ const CommentBox: FC<Props> = ({ tweetId, onComment }) => {
       className="mt-3 flex space-x-3"
     >
       <input
+        data-testid="input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className="flex-1 rounded-lg bg-gray-100 p-2 outline-none"
@@ -46,6 +47,7 @@ const CommentBox: FC<Props> = ({ tweetId, onComment }) => {
         placeholder="Write a comment..."
       />
       <button
+        data-testid="button"
         disabled={!input.length || session.status !== "authenticated"}
         className="text-primary disabled:text-gray-200"
       >

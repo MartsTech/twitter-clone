@@ -1,11 +1,11 @@
 import Sidebar from "components/sidebar";
 import Widget from "components/widget";
 import Head from "next/head";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 
 interface Props {
   title?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const PageLayout: FC<Props> = ({ title = "Twitter Clone", children }) => {

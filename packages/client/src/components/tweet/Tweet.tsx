@@ -7,7 +7,8 @@ import {
 import Avatar from "components/avatar";
 import CommentBox from "components/commentbox";
 import useTweetComments from "hooks/useTweetComments";
-import { FC, useState } from "react";
+import type { FC } from "react";
+import { useState } from "react";
 import type { Tweet as TweetType } from "types/tweet";
 import { urlFor } from "utils/sanity";
 import TweetComments from "./components/Comments";

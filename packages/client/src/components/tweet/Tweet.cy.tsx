@@ -1,6 +1,7 @@
 import { ChatAlt2Icon } from "@heroicons/react/outline";
 import type { Comment } from "types/comment";
-import type { Image, Tweet as TweetType } from "types/tweet";
+import type { Image } from "types/sanity";
+import type { Tweet as TweetType } from "types/tweet";
 import { urlFor } from "utils/sanity";
 import TweetComments from "./components/Comments";
 import TweetHeader from "./components/Header";

@@ -23,14 +23,10 @@ const HomeModule: FC<Props> = ({ tweets: tweetsData }) => {
           active:scale-125"
         />
       </div>
-      <div className="">
-        <TweetBox onTweet={() => refresh(false)} />
-      </div>
-      <div className="">
-        {tweets.map((tweet) => (
-          <Tweet key={tweet["_id"]} tweet={tweet} />
-        ))}
-      </div>
+      <TweetBox onTweet={() => refresh(false)} />
+      {tweets.map((tweet) => (
+        <Tweet key={tweet["_id"]} tweet={tweet} />
+      ))}
     </div>
   );
 };

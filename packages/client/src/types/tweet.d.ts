@@ -1,3 +1,4 @@
+import type { Image } from "./sanity";
 import type { User } from "./user";
 
 export interface Tweet {
@@ -14,14 +15,4 @@ export interface Tweet {
 
 export interface TweetBody {
   body: string;
-}
-
-export interface Image {
-  _type: "image";
-  asset: Asset;
-}
-
-export interface Asset {
-  _ref: string;
-  _type: string;
 }
