@@ -9,12 +9,17 @@ import Avatar from "components/avatar";
 import { TweetImage } from "components/tweet";
 import useSelectedImage from "hooks/useSelectedImage";
 import { useSession } from "next-auth/react";
-import { FormEvent, useState } from "react";
+import type { FC, FormEvent } from "react";
+import { useState } from "react";
 import createTweet from "utils/tweet/createTweet";
 import uploadTweetImage from "utils/tweet/uploadTweetImage";
 import TweetBoxIcon from "./components/Icon";
 
-const TweetBox = () => {
+interface Props {
+  onTweet: () => Promise<void>;
+}
+
+const TweetBox: FC<Props> = ({ onTweet }) => {
   const [input, setInput] = useState("");
   const [submiting, setSubmiting] = useState(false);
   const [imageRef, imageFile, imageDataUrl, handleSelectImage] =
@@ -24,9 +29,11 @@ const TweetBox = () => {
   const handleSubmit = async (
     e: FormEvent<HTMLFormElement>,
     body: string,
-    imageFile: File | null
+    imageFile: File | null,
+    onTweet: () => Promise<void>
   ) => {
     e.preventDefault();
+
     if (submiting) {
       return;
     }
@@ -40,6 +47,8 @@ const TweetBox = () => {
     if (imageFile && rev) {
       await uploadTweetImage(rev, imageFile);
     }
+
+    await onTweet();
     setSubmiting(false);
   };
 
@@ -54,7 +63,7 @@ const TweetBox = () => {
       </div>
       <div className="flex flex-1 items-center pl-2">
         <form
-          onSubmit={(e) => handleSubmit(e, input, imageFile)}
+          onSubmit={(e) => handleSubmit(e, input, imageFile, onTweet)}
           className="flex flex-1 flex-col"
         >
           <input

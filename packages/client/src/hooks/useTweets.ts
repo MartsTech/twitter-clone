@@ -6,13 +6,21 @@ import fetchTweets from "utils/tweet/fetchTweets";
 const useTweets = (tweetsData: Tweet[]) => {
   const [tweets, setTweets] = useState(tweetsData);
 
-  const refresh = async () => {
-    const refreshToast = toast.loading("Refreshing...");
+  const refresh = async (notification: boolean = true) => {
+    let refreshToast;
+
+    if (notification) {
+      refreshToast = toast.loading("Refreshing...");
+    }
+
     const data = await fetchTweets();
     setTweets(data);
-    toast.success("Refreshed!", {
-      id: refreshToast,
-    });
+
+    if (notification) {
+      toast.success("Refreshed!", {
+        id: refreshToast,
+      });
+    }
   };
 
   return [tweets, refresh] as const;

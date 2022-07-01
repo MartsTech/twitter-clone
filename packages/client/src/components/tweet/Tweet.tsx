@@ -5,8 +5,9 @@ import {
   UploadIcon,
 } from "@heroicons/react/outline";
 import Avatar from "components/avatar";
+import CommentBox from "components/commentbox";
 import useTweetComments from "hooks/useTweetComments";
-import type { FC } from "react";
+import { FC, useState } from "react";
 import type { Tweet as TweetType } from "types/tweet";
 import { urlFor } from "utils/sanity";
 import TweetComments from "./components/Comments";
@@ -19,7 +20,8 @@ interface Props {
 }
 
 const Tweet: FC<Props> = ({ tweet }) => {
-  const [comments] = useTweetComments(tweet["_id"]);
+  const [comments, refresh] = useTweetComments(tweet["_id"]);
+  const [isCommentBoxOpened, setIsCommentBoxOpened] = useState(false);
 
   return (
     <div className="flex flex-col space-x-3 border-y border-gray-100 p-5">
@@ -44,11 +46,21 @@ const Tweet: FC<Props> = ({ tweet }) => {
           data-testid="commentIcon"
           Icon={ChatAlt2Icon}
           count={comments.length}
+          onClick={() => setIsCommentBoxOpened((value) => !value)}
         />
         <TweetIcon Icon={SwitchHorizontalIcon} />
         <TweetIcon Icon={HeartIcon} />
         <TweetIcon Icon={UploadIcon} />
       </div>
+      {isCommentBoxOpened && (
+        <CommentBox
+          tweetId={tweet["_id"]}
+          onComment={() => {
+            refresh();
+            setIsCommentBoxOpened(false);
+          }}
+        />
+      )}
       {comments.length > 0 && <TweetComments comments={comments} />}
     </div>
   );
