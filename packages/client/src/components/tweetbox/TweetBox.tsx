@@ -58,7 +58,7 @@ const TweetBox: FC<Props> = ({ onTweet }) => {
       <div className="mt-4">
         <Avatar
           data-testid="avatar"
-          src={session.data?.user?.image || undefined}
+          src={(session.data && session.data?.user?.image) || undefined}
           size="large"
         />
       </div>
