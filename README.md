@@ -1,7 +1,5 @@
 <h1 align="center">
-  <a href="https://twitter-clone-martstech.vercel.app">
-    <img width="200px" src="https://raw.githubusercontent.com/MartsTech/twitter-clone/main/images/logo.png" alt="Twitter Logo" />
-  </a>
+  <img width="200px" src="https://raw.githubusercontent.com/MartsTech/twitter-clone/main/images/logo.png" alt="Twitter Logo" />
   <br />
   Twitter Clone
   <br />
@@ -18,7 +16,6 @@
 </div>
 
 <div align="center">
-  <a href="#demo">Demo</a> •
   <a href="#key-features">Key Features</a> •
   <a href="#key-technologies">Key Technologies</a> •
   <a href="#setup">Setup</a> •
@@ -27,12 +24,6 @@
 </div>
 
 <img style="object-fit: contain" src="https://raw.githubusercontent.com/MartsTech/twitter-clone/main/images/home.png" alt="home" />
-
----
-
-## Demo
-
-Here is a working live demo [here](https://twitter-clone-martstech.vercel.app)
 
 ---
 
